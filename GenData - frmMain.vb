@@ -24,13 +24,13 @@ Imports System.IO                   '
 
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 Public Class frmMain
-    
+
     ' module level variables ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     Const MIN_CONTOUR_AREA As Integer = 100
     
     Const RESIZED_IMAGE_WIDTH As Integer = 20
     Const RESIZED_IMAGE_HEIGHT As Integer = 30
-    
+
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     Private Sub btnOpenTrainingImage_Click(sender As Object, e As EventArgs) Handles btnOpenTrainingImage.Click
         Dim drChosenFile As DialogResult
@@ -140,20 +140,9 @@ Public Class frmMain
         Next
 
         txtInfo.Text = txtInfo.Text + "training complete !!" + vbCrLf + vbCrLf
-        
-        '            'save classifications to file '''''''''''''''''''''''''''''''''''''''''''''''''''''
 
-        'Dim fsClassifications As New FileStorage("classifications.xml", FileStorage.Mode.Write)
+                'save classifications to file '''''''''''''''''''''''''''''''''''''''''''''''''''''
 
-        'If (fsClassifications.IsOpened = False) Then
-        '    txtInfo.AppendText("error, unable to open training classifications file, exiting program" + vbCrLf + vbCrLf)
-        '    Return
-        'End If
-
-        'fsClassifications.Write(mtxClassifications, "classifications",
-
-
-                    'save classifications to file '''''''''''''''''''''''''''''''''''''''''''''''''''''
         Dim xmlSerializer As XmlSerializer = New XmlSerializer(mtxClassifications.GetType)
         Dim streamWriter As StreamWriter
 
@@ -168,7 +157,7 @@ Public Class frmMain
         xmlSerializer.Serialize(streamWriter, mtxClassifications)
         streamWriter.Close()
 
-        'save training images to file '''''''''''''''''''''''''''''''''''''''''''''''''''''
+                'save training images to file '''''''''''''''''''''''''''''''''''''''''''''''''''''
 
         xmlSerializer = New XmlSerializer(mtxTrainingImages.GetType)
 
@@ -185,12 +174,11 @@ Public Class frmMain
 
         txtInfo.Text = vbCrLf + txtInfo.Text + "file writing done" + vbCrLf
 
+        MsgBox("Training complete, file writing done !!")
+
     End Sub
-
+    
 End Class
-
-
-
 
 
 

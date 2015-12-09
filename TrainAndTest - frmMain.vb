@@ -24,27 +24,6 @@ Imports System.Xml.Serialization    'these imports are for writing Matrix object
 Imports System.IO
 
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-Public Class ContourWithData
-
-    ' member variables ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-    Const MIN_CONTOUR_AREA As Integer = 100
-
-    Public contour As VectorOfPoint
-    Public boundingRect As Rectangle
-    Public dblArea As Double
-
-    '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-    Public Function checkIfContourIsValid() As Boolean
-        If (dblArea < MIN_CONTOUR_AREA) Then
-            Return False
-        Else
-            Return True
-        End If
-    End Function
-    
-End Class
-
-'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 Public Class frmMain
 
     ' module level variables ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -53,7 +32,6 @@ Public Class frmMain
 
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     Private Sub btnOpenTestImage_Click(sender As Object, e As EventArgs) Handles btnOpenTestImage.Click
-
         Dim mtxClassifications As Matrix(Of Single) = New Matrix(Of Single)(1, 1)
         Dim mtxTrainingImages As Matrix(Of Single) = New Matrix(Of Single)(1, 1)
 
@@ -213,11 +191,7 @@ Public Class frmMain
         txtInfo.AppendText(vbCrLf + vbCrLf + "characters read from image = " + strFinalString + vbCrLf)
 
         CvInvoke.Imshow("imgTestingNumbers", imgTestingNumbers)
-        
+
     End Sub
     
 End Class
-
-
-
-
