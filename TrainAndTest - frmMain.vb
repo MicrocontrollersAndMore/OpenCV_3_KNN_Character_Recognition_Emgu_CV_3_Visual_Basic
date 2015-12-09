@@ -1,4 +1,13 @@
-﻿'frmMain.vb
+﻿'TrainAndTest
+'frmMain.vb
+
+'form components:
+'frmMain
+'tableLayoutPanel
+'btnOpenTestImage
+'lblChosenFile
+'txtInfo
+'ofdOpenFile
 
 Option Explicit On      'require explicit declaration of variables, this is NOT Python !!
 Option Strict On        'restrict implicit data type conversions to only widening conversions
