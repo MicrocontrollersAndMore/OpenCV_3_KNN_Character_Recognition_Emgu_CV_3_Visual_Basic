@@ -1,4 +1,4 @@
-'TrainAndTest
+﻿'TrainAndTest
 'ContourWithData.vb
 
 Option Explicit On      'require explicit declaration of variables, this is NOT Python !!
@@ -12,12 +12,12 @@ Public Class ContourWithData
     ' member variables ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     Const MIN_CONTOUR_AREA As Integer = 100
 
-    Public contour As VectorOfPoint
-    Public boundingRect As Rectangle
-    Public dblArea As Double
+    Public contour As VectorOfPoint             'contour
+    Public boundingRect As Rectangle            'bounding rect for contour
+    Public dblArea As Double                    'area of contour
 
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-    Public Function checkIfContourIsValid() As Boolean
+    Public Function checkIfContourIsValid() As Boolean      'this is oversimplified, for a production grade program better validity checking would be necessary
         If (dblArea < MIN_CONTOUR_AREA) Then
             Return False
         Else
@@ -26,3 +26,4 @@ Public Class ContourWithData
     End Function
 
 End Class
+
